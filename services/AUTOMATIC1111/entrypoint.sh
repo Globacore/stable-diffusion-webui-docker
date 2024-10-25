@@ -56,6 +56,10 @@ for to_path in "${!MOUNTS[@]}"; do
   echo Mounted $(basename "${from_path}")
 done
 
+if [ ! -d /data/auto/extensions/sd-webui-controlnet ]; then
+  cp -rf ${ROOT}/repositories/sd-webui-controlnet ${ROOT}/extensions/sd-webui-controlnet
+fi
+
 echo "Installing extension dependencies (if any)"
 
 # because we build our container as root:
